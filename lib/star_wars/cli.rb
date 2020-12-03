@@ -43,7 +43,12 @@ class CLI
         print "Who would you like to look up? ".colorize(:green)
         input = gets.chomp
         people = @api.fetch_people_by_name(input)
-        binding.pry
-    end
+        if people 
+            puts people.pretty_print
+          else
+            puts
+            puts "Could not find a person by that name.".colorize(:red)
+            puts
+          end    
 
 end
