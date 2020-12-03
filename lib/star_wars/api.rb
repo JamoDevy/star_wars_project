@@ -43,6 +43,16 @@ class API
     
     end
 
+    def fetch_starship_by_name(name)
+        uri = URI(BASE_URI + "starships/?search=#{name}")
+        starship = make_request(uri)
+        if starship["results"][0]
+            Starship.new(starship["results"][0])
+        else
+            nil
+        end
+    end
+
     def make_request(uri)
         response = Net::HTTP.get_response(uri)
         JSON.parse(response.body)
