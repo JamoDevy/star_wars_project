@@ -1,4 +1,5 @@
 class CLI
+    
 
     def start
         @user_input = nil
@@ -44,7 +45,7 @@ class CLI
         input = gets.chomp
         people = @api.fetch_people_by_name(input)
         if people 
-            puts people.pretty_print
+            puts people.pretty_print    
           else
             puts
             puts "Could not find a person by that name.".colorize(:red)

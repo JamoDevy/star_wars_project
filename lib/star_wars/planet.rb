@@ -14,9 +14,14 @@ class Planet
 
     def save
         self.class.all << self
+    end
 
     def self.all
         @@all
+    end
+
+    def people
+        People.all.select{|person| person.planet == self}
     end
 
     def pretty_print

@@ -5,10 +5,10 @@ class Starship
     @@all =[]
 
     def initialize(starship_data)
-        @name = starship_data["name"]
-        @manufacturer = starship_data["manufacturer"]
-        @cost_in_credits = starship_data["cost_in_credits"]
-        @passengers = starship_data["passengers"]
+        self.name = starship_data["name"]
+        self.manufacturer = starship_data["manufacturer"]
+        self.cost_in_credits = starship_data["cost_in_credits"]
+        self.passengers = starship_data["passengers"]
         save
     end
 

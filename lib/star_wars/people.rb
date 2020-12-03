@@ -1,14 +1,15 @@
 class People
 
-    attr_accessor :name, :height, :eye_color, :gender
+    attr_accessor :name, :height, :eye_color, :gender, :planet, :starship
 
     @@all = []
 
     def initialize(people_data)
-        @name = people_data["name"]
-        @height = people_data["height"]
-        @eye_color = people_data["eye_color"]
-        @gender = people_data["gender"]
+        self.name = people_data["name"]
+        self.height = people_data["height"]
+        self.eye_color = people_data["eye_color"]
+        self.gender = people_data["gender"]
+        self.planet = people_data["planet"]
         save
     end
 
