@@ -9,6 +9,7 @@ class People
         @height = people_data["height"]
         @eye_color = people_data["eye_color"]
         @gender = people_data["gender"]
+        save
     end
 
 
