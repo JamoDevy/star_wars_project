@@ -19,4 +19,16 @@ class Planet
         @@all
     end
 
+    def pretty_print
+        puts
+        puts @name
+        puts
+        print "Terrain:--- "
+        puts @terrain
+        print "Climate:--- "
+        puts @climate
+        print "Population:--- "
+        puts @population
+    end
+
 end
