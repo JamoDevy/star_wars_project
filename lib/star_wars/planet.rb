@@ -1,6 +1,6 @@
 class Planet
 
-    attr_reader :name, :terrain, :climate, :population
+    attr_accessor :name, :terrain, :climate, :population
 
     @@all = []
 

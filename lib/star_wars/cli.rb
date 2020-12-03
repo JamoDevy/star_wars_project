@@ -67,7 +67,7 @@ class CLI
 
     def search_for_starship
         print "What starship would you like to look up? ".colorize(:green)
-        input =gets.chomp
+        input = gets.chomp
         starship = @api.fetch_starship_by_name(input)
         if starship
           puts starship.pretty_print

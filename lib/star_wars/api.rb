@@ -15,7 +15,7 @@
 
 #end
 
-class API
+class API 
 
     BASE_URI = "https://swapi.py4e.com/api/"
 
@@ -36,7 +36,9 @@ class API
         uri = URI(BASE_URI + "planets/?search=#{name}")
         planet = make_request(uri)
         if planet["results"][0]
+            #binding.pry 
             Planet.new(planet["results"][0])
+            
         else
             nil
         end

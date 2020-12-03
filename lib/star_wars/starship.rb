@@ -1,6 +1,6 @@
 class Starship
 
-    attr_reader :name, :manufacturer, :cost_in_credits, :passengers
+    attr_accessor :name, :manufacturer, :cost_in_credits, :passengers
 
     @@all =[]
 
