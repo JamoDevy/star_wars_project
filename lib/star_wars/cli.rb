@@ -4,7 +4,7 @@ class CLI
         @user_input = nil
         @api = API.new
         welcome
-        until @user_input == "5"
+        until @user_input == "4"
             main_menu
         end
         puts "---May the force be with you.---".colorize(:blue)
@@ -49,6 +49,8 @@ class CLI
             puts
             puts "Could not find a person by that name.".colorize(:red)
             puts
-          end    
+        end    
+
+    end
 
 end

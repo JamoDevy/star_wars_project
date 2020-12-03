@@ -23,7 +23,7 @@ class API
 
         uri = URI(BASE_URI + "people/?search=#{name}")
         people = make_request(uri)
-        binding.pry
+       
         if people["results"][0]
             People.new(people["results"][0])
         else

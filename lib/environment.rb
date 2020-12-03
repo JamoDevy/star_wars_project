@@ -9,6 +9,7 @@ require 'net/http'
 require 'pry'
 require 'json'
 require 'uri'
+require 'colorize'
 
 module StarWars
   class Error < StandardError; end

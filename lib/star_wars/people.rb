@@ -7,8 +7,8 @@ class People
     def initialize(people_data)
         @name = people_data["name"]
         @height = people_data["height"]
-        @eye_color = people_data["eyes"]
-        @gender = people_data["eye color"]
+        @eye_color = people_data["eye_color"]
+        @gender = people_data["gender"]
     end
 
 
@@ -23,7 +23,9 @@ class People
     end
 
     def pretty_print
+        puts
         puts @name
+        puts
         print "Height:---"
         puts @height
         print "Eye color:---"
