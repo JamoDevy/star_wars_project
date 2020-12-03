@@ -1,5 +1,15 @@
 class CLI
 
+    def start
+        @user_input = nil
+        @api = API.new
+        welcome
+        until @user_input == "5"
+            main_menu
+        end
+        puts "---May the force be with you.---".colorize(:blue)
+    end
+
     def welcome
         puts
         puts "---Welcome to a galaxy far far away!---".colorize(:blue)
@@ -11,11 +21,22 @@ class CLI
         puts "1. Search for People" 
         puts "2. Search for Planets"
         puts "3. Search for Starships"
-    end
+        puts "4. Exit"
 
-end
+        @user_input = gets.chomp
 
-
-
+        if @user_input == "1"
+            search_for_people
+        elsif @user_input == "2"
+            search_for_planet
+        elsif @user_input == "3"
+            search_for_starship
+        elsif @user_input == "4"
+        
+        else 
+            puts "Invalid input".colorize(:red)
+        end
+   
+  end
 
 end
