@@ -1,5 +1,7 @@
 class CLI
-    
+
+    attr_accessor :user_input
+    attr_reader :api 
 
     def start
         @user_input = nil
@@ -8,7 +10,7 @@ class CLI
         until @user_input == "4"
             main_menu
         end
-        puts "---May the force be with you.---".colorize(:blue)
+        p "---May the force be with you.---".colorize(:blue)
     end
 
     def welcome
@@ -24,15 +26,15 @@ class CLI
         puts "3. Search for Starships"
         puts "4. Exit"
 
-        @user_input = gets.chomp
+        user_input = gets.chomp
 
-        if @user_input == "1"
+        if user_input == "1"
             search_for_people
-        elsif @user_input == "2"
+        elsif user_input == "2"
             search_for_planet
-        elsif @user_input == "3"
+        elsif user_input == "3"
             search_for_starship
-        elsif @user_input == "4"
+        elsif user_input == "4"
         
         else 
             puts "Invalid input".colorize(:red)
@@ -43,7 +45,7 @@ class CLI
     def search_for_people
         print "Who would you like to look up? ".colorize(:green)
         input = gets.chomp
-        people = @api.fetch_people_by_name(input)
+        people = api.fetch_people_by_name(input)
         if people 
             puts people.pretty_print    
           else
@@ -57,7 +59,7 @@ class CLI
     def search_for_planet
         print "What planet would you like to look up? ".colorize(:green)
         input = gets.chomp
-        planet = @api.fetch_planet_by_name(input)
+        planet = api.fetch_planet_by_name(input)
         if planet
           puts planet.pretty_print
         else
@@ -69,7 +71,7 @@ class CLI
     def search_for_starship
         print "What starship would you like to look up? ".colorize(:green)
         input = gets.chomp
-        starship = @api.fetch_starship_by_name(input)
+        starship = api.fetch_starship_by_name(input)
         if starship
           puts starship.pretty_print
         else
