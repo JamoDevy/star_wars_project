@@ -9,6 +9,7 @@ class People
         @height = people_data["height"]
         @eye_color = people_data["eyes"]
         @gender = people_data["eye color"]
+    end
 
 
 
@@ -19,6 +20,17 @@ class People
 
     def self.all
         @@all
+    end
+
+    def pretty_print
+        puts @name
+        print "Height:---"
+        puts @height
+        print "Eye color:---"
+        puts @eye_color
+        print "Gender:---"
+        puts @gender
+    
     end
 
 end
