@@ -7,6 +7,8 @@ require_relative "./star_wars/people"
 require 'httparty'
 require 'net/http'
 require 'pry'
+require 'json'
+require 'uri'
 
 module StarWars
   class Error < StandardError; end
