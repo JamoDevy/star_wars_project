@@ -32,6 +32,17 @@ class API
 
     end
 
+    def fetch_planet_by_name(name)
+        uri = URI(BASE_URI + "planets/?search=#{name}")
+        planet = make_request(uri)
+        if planet["results"][0]
+            Planet.new(planet["results"][0])
+        else
+            nil
+        end
+    
+    end
+
     def make_request(uri)
         response = Net::HTTP.get_response(uri)
         JSON.parse(response.body)
