@@ -53,4 +53,16 @@ class CLI
 
     end
 
+    def search_for_planet
+        print "What planet would you like to look up? ".colorize(:green)
+        input = gets.chomp
+        planet = @api.fetch_planet_by_name(input)
+        if planet
+          puts planet.pretty_print
+        else
+          puts "Could not find a planet by that name.".colorize(:red)
+        end
+    
+      end
+
 end
