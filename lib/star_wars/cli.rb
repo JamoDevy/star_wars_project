@@ -37,6 +37,13 @@ class CLI
             puts "Invalid input".colorize(:red)
         end
    
-  end
+    end
+
+    def search_for_people
+        print "Who would you like to look up? ".colorize(:green)
+        input = gets.chomp
+        people = @api.fetch_people_by_name(input)
+        binding.pry
+    end
 
 end
