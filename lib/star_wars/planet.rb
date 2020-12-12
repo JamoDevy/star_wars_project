@@ -20,9 +20,9 @@ class Planet
         @@all
     end
 
-    def people
-        People.all.select{|person| person.planet == self}
-    end
+    #def people
+        #People.all.select{|person| person.planet == self}
+    #end
 
     def pretty_print
         puts

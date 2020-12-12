@@ -1,6 +1,6 @@
 class People
 
-    attr_accessor :name, :height, :eye_color, :gender, :planet, :starship
+    attr_accessor :name, :height, :eye_color, :gender #, :planet, :starship
 
     @@all = []
 
@@ -9,7 +9,7 @@ class People
         self.height = people_data["height"]
         self.eye_color = people_data["eye_color"]
         self.gender = people_data["gender"]
-        self.planet = people_data["planet"]
+        #self.planet = people_data["planet"]
         save
     end
 

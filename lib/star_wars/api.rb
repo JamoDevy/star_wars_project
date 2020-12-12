@@ -1,19 +1,4 @@
-#class API
 
-    #BASE_URL = "https://swapi.py4e.com/api/"
-    
-    #def call
-        #url = BASE_URL + "/people" 
-        #uri = URI(url)
-        #response = Net::HTTP.get(uri)
-        #formatted_resp = JSON.parse(response)
-        #formatted_resp["results"].each do |people_hash|
-            #binding.pry
-        #end
-        
-    #end
-
-#end
 
 class API 
 
@@ -25,10 +10,9 @@ class API
         people = make_request(uri)
     
         if people["results"][0]
-            starship = fetch_starship_by_url(people["results"][0]["starships"][0])
             person = People.new(people["results"][0])
-            person.starship = starship
-           # binding.pry
+        else
+            nil
         
         end
 
@@ -38,7 +22,7 @@ class API
         uri = URI(BASE_URI + "planets/?search=#{name}")
         planet = make_request(uri)
         if planet["results"][0]
-            #binding.pry 
+            
             Planet.new(planet["results"][0])
         else
             nil
@@ -56,13 +40,13 @@ class API
         end
     end
 
-    def fetch_starship_by_url(url)
-        uri = URI(url)
-        starship = make_request(uri)
-        Starship.new(starship)
+    #def fetch_starship_by_url(url)
+        #uri = URI(url)
+        #starship = make_request(uri)
+        #Starship.new(starship)
         #binding.pry
 
-    end
+    #end
 
     def make_request(uri)
         response = Net::HTTP.get_response(uri)
