@@ -5,10 +5,10 @@ class Planet
     @@all = []
 
     def initialize(planet_data)
-        @name = planet_data["name"]
-        @terrain = planet_data["terrain"]
-        @climate = planet_data["climate"]
-        @population = planet_data["population"]
+        self.name = planet_data["name"]
+        self.terrain = planet_data["terrain"]
+        self.climate = planet_data["climate"]
+        self.population = planet_data["population"]
         save
     end
 
