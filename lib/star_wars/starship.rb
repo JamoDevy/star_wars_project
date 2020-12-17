@@ -31,4 +31,12 @@ class Starship
         print "Passengers:--- "
         puts @passengers
     end
+
+    def display_data
+        table = TTY::Table.new(header: ["Name", "Terrain", "Climate", "Population"])
+        table << ["#{self.name}".yellow, "#{self.manufacturer}".yellow, "#{self.cost_in_credits}".yellow, "#{self.passengers}".yellow]
+        puts table.render(:unicode)
+    end
+
+
 end

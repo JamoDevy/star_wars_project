@@ -36,4 +36,10 @@ class Planet
         puts @population
     end
 
+    def display_data
+        table = TTY::Table.new(header: ["Name", "Terrain", "Climate", "Population"])
+        table << ["#{self.name}".yellow, "#{self.terrain}".yellow, "#{self.climate}".yellow, "#{self.population}".yellow]
+        puts table.render(:unicode)
+    end
+
 end

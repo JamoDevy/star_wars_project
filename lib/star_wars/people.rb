@@ -10,6 +10,7 @@ class People
         self.eye_color = people_data["eye_color"]
         self.gender = people_data["gender"]
         #self.planet = people_data["planet"]
+        #binding.pry 
         save
     end
 
@@ -35,6 +36,12 @@ class People
         print "Gender:---"
         puts @gender
     
+    end
+
+    def display_data
+        table = TTY::Table.new(header: ["Name", "Height", "Eye Color", "Gender"])
+        table << ["#{self.name}".yellow, "#{self.height}".yellow, "#{self.eye_color}".yellow, "#{self.gender}".yellow]
+        puts table.render(:unicode)
     end
 
 end
