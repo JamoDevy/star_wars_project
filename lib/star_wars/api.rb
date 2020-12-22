@@ -8,14 +8,13 @@ class API
 
         uri = URI(BASE_URI + "people/?search=#{name}")
         people = make_request(uri)
-    
+        
         if people["results"][0]
-            person = People.new(people["results"][0])
+            People.new(people["results"][0])
         else
             nil
-        
         end
-
+        
     end
 
     def fetch_planet_by_name(name)
@@ -40,13 +39,7 @@ class API
         end
     end
 
-    #def fetch_starship_by_url(url)
-        #uri = URI(url)
-        #starship = make_request(uri)
-        #Starship.new(starship)
-        #binding.pry
-
-    #end
+    
 
     def make_request(uri)
         response = Net::HTTP.get_response(uri)

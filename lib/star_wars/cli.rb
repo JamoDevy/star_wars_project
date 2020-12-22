@@ -12,8 +12,8 @@ class CLI
             main_menu
         end 
 
-        puts "---May the force be with you.---".colorize(:blue)
-        puts 
+        #puts "---May the force be with you.---".colorize(:blue)
+        #puts 
     end
 
     def welcome
@@ -39,8 +39,6 @@ class CLI
         elsif user_input == "3"
             search_for_starship
         elsif user_input == "4"
-            #puts "---May the force be with you.---".colorize(:blue)
-            #exit
             end_program 
         else 
             puts "Invalid input".colorize(:red)
@@ -51,9 +49,17 @@ class CLI
     def search_for_people
         print "Who would you like to look up? ".colorize(:green)
         input = gets.chomp
-        people = api.fetch_people_by_name(input)
-        if people 
-            puts people.display_data
+        if People.find_by_name(input)
+            #puts "I'm in here"
+            person = People.find_by_name(input)
+            #binding.pry 
+        else
+            person = api.fetch_people_by_name(input)
+      
+        end
+
+        if person
+            puts person.display_data
           else
             puts
             puts "Could not find a person by that name.".colorize(:red)
