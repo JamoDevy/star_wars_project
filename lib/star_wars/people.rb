@@ -17,14 +17,12 @@ class People
         all.detect {|person| person.name.downcase == name.downcase}
            
     end
-    #def self.find_people_taller_then_150_and_sort_by_name_take_5
-        #tall_people = all.select {|person| person.height.to_i > 150}
-        #tall_people.sort {|person_1, person_2| person_2.name <=> person_1.name}
-        #tall_people.sort_by(&:name).reverse
-        #tall_people.sort_by{|person| person.name}.reverse
-        #tall_people.take(5)
-        #binding.pry
-    #end
+
+    def self.all_sort_by_name
+        all.map {|person| person.name}
+        
+    end
+    
     def save
         self.class.all << self
     end
@@ -34,18 +32,6 @@ class People
         @@all
     end
 
-    def pretty_print
-        puts
-        puts @name
-        puts
-        print "Height:---"
-        puts @height
-        print "Eye color:---"
-        puts @eye_color
-        print "Gender:---"
-        puts @gender
-    
-    end
 
     def display_data
         table = TTY::Table.new(header: ["Name", "Height", "Eye Color", "Gender"])

@@ -20,21 +20,11 @@ class Planet
         @@all
     end
 
-    #def people
-        #People.all.select{|person| person.planet == self}
-    #end
-
-    def pretty_print
-        puts
-        puts @name
-        puts
-        print "Terrain:--- "
-        puts @terrain
-        print "Climate:--- "
-        puts @climate
-        print "Population:--- "
-        puts @population
+    def self.find_by_name(name)
+        all.detect {|planet| planet.name.downcase == name.downcase}
+           
     end
+
 
     def display_data
         table = TTY::Table.new(header: ["Name", "Terrain", "Climate", "Population"])

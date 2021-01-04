@@ -50,12 +50,9 @@ class CLI
         print "Who would you like to look up? ".colorize(:green)
         input = gets.chomp
         if People.find_by_name(input)
-            #puts "I'm in here"
             person = People.find_by_name(input)
-            #binding.pry 
         else
             person = api.fetch_people_by_name(input)
-      
         end
 
         if person
@@ -65,13 +62,19 @@ class CLI
             puts "Could not find a person by that name.".colorize(:red)
             puts
         end    
+        
 
     end
 
     def search_for_planet
         print "What planet would you like to look up? ".colorize(:green)
         input = gets.chomp
-        planet = api.fetch_planet_by_name(input)
+        if Planet.find_by_name(input)
+            planet = Planet.find_by_name(input)
+        else
+            planet = api.fetch_planet_by_name(input)
+        end
+
         if planet
           puts planet.display_data
         else
@@ -83,7 +86,12 @@ class CLI
     def search_for_starship
         print "What starship would you like to look up? ".colorize(:green)
         input = gets.chomp
-        starship = api.fetch_starship_by_name(input)
+        if Starship.find_by_name(input)
+            starship = Starship.find_by_name(input)
+        else
+            starship = api.fetch_starship_by_name(input)
+        end
+        
         if starship
           puts starship.display_data
         else

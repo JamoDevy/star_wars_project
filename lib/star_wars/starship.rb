@@ -20,16 +20,9 @@ class Starship
         @@all
     end
 
-    def pretty_print
-        puts
-        puts @name
-        puts
-        print "Manufacturer:--- "
-        puts @manufacturer
-        print "Cost in credits:--- "
-        puts @cost_in_credits
-        print "Passengers:--- "
-        puts @passengers
+    def self.find_by_name(name)
+        all.detect {|starship| starship.name.downcase == name.downcase}
+           
     end
 
     def display_data
